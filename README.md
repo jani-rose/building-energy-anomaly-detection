@@ -1,135 +1,113 @@
-⚡ Building Energy Consumption Anomaly Detection
-📌 Project Overview
+# Building Energy Consumption Anomaly Detection
 
-This project performs large-scale time-series analysis and machine learning–based anomaly detection on commercial building electricity consumption data.
+## Overview
 
-The dataset is taken from the Building Data Genome Project 2, which contains hourly energy readings of more than 1500 buildings across two years (2016–2017).
+This project analyzes large-scale building electricity consumption data from the Building Data Genome Project 2 (BDG2) dataset. The objective is to identify abnormal energy consumption patterns using machine learning and time-series analysis techniques.
 
-The primary objective is to:
+The project includes data preprocessing, feature engineering, anomaly detection, visualization, and business-oriented analysis to better understand building energy behavior.
 
-Understand building-wise energy usage behavior
+**Note:** This was a team project. My primary contribution was implementing the machine learning–based anomaly detection component using the Isolation Forest algorithm and analyzing abnormal energy consumption patterns.
 
-Handle large-scale missing data
+---
 
-Engineer meaningful time-based features
+## Dataset Information
 
-Detect abnormal energy consumption patterns using unsupervised machine learning
+* Dataset: Building Data Genome Project 2 (BDG2)
+* Time Period: 2016–2017
+* Frequency: Hourly readings
+* Buildings: 1,500+
+* Total Records: 17,544 timestamps
+* Type: Multivariate Time-Series Data
 
-This project follows a complete ML pipeline:
+Each row represents a timestamp and each column represents the electricity consumption of a building.
 
-Data Loading → Data Cleaning → Feature Engineering → Anomaly Detection
+---
 
-📂 Dataset Information
+## Project Workflow
 
-Dataset: Building Data Genome Project 2
+1. Data Loading
+2. Data Cleaning
+3. Missing Value Handling
+4. Feature Engineering
+5. Anomaly Detection
+6. Visualization and Analysis
+7. Business Insights
 
-Time Period: 2016 – 2017
+---
 
-Frequency: Hourly readings
+## Feature Engineering
 
-Total Rows: 17,544 timestamps
+The following features were generated to capture temporal consumption patterns:
 
-Total Columns: 1,579 (1 timestamp + 1,578 buildings)
+* Hour of Day
+* Day of Week
+* Weekend Indicator
+* 1-Hour Lag Feature
+* 24-Hour Lag Feature
+* 24-Hour Rolling Mean
+* 24-Hour Rolling Standard Deviation
 
-Type: Multivariate Time-Series Data
+---
 
-Each row represents a timestamp and each column represents a building’s electricity consumption.
+## Machine Learning Approach
 
-🔍 Data Preprocessing & Analysis
-1️⃣ Data Understanding
+### Isolation Forest
 
-Loaded large dataset efficiently
+Isolation Forest was used as the primary anomaly detection model.
 
-Converted timestamp to datetime format
+Key characteristics:
 
-Verified dataset dimensions and structure
+* Unsupervised learning approach
+* Detects unusual consumption behavior without labeled anomaly data
+* Efficient for large-scale datasets
+* Suitable for complex and seasonal energy usage patterns
 
-2️⃣ Missing Value Handling
+The model identifies abnormal spikes and drops in electricity consumption that may indicate operational inefficiencies, equipment issues, or unusual building activity.
 
-Total missing values identified: 1,312,095
+---
 
-Applied forward fill method to maintain time continuity
+## Results
 
-Preserved all rows after cleaning
+* Anomalies Detected: 175
+* Anomaly Percentage: Approximately 1%
 
-3️⃣ Feature Engineering
+Detected anomalies were visualized and analyzed to understand abnormal energy consumption behavior across buildings.
 
-Generated time-based and statistical features:
+---
 
-Hour of day
+## Technologies Used
 
-Day of week
+* Python
+* Pandas
+* NumPy
+* Scikit-learn
+* Matplotlib
+* Git
+* GitHub
 
-Weekend indicator
+---
 
-Lag features (1-hour and 24-hour)
+## Repository Structure
 
-24-hour rolling mean
-
-24-hour rolling standard deviation
-
-These features help the model learn temporal consumption patterns.
-
-🤖 Machine Learning – Anomaly Detection
-
-Unsupervised learning techniques were applied to detect abnormal electricity consumption.
-
-✅ Isolation Forest
-
-Contamination: 1%
-
-Learns normal energy usage behavior
-
-Detects rare consumption deviations
-
-📊 Results
-
-Total Anomalies Detected: 175
-
-Anomaly Percentage: 1%
-
-Anomalies indicate unusual spikes or drops in electricity usage that may represent:
-
-Equipment malfunction
-
-Sensor irregularities
-
-Operational inefficiencies
-
-Abnormal building usage
-
-The final results are saved as:
-
-ml_anomaly_results.csv
-
-🛠 Technologies Used
-
-Python
-
-Pandas
-
-NumPy
-
-Scikit-learn
-
-VS Code
-
-Git & GitHub
-
-📁 Project Structure
+```text
 Building-Energy-Analysis
 │
-├── data/
-│   └── electricity.csv
-│
 ├── src/
-│   ├── load_data.py
-│   ├── data_cleaning.py
-│   ├── feature_engineering.py
-│   ├── modeling.py
-│
+├── results/
 ├── main.py
-├── ml_anomaly_results.csv
-├── README.md
+├── Energy_Anomaly_Detection_FULL_Project.ipynb
+└── README.md
+```
 
-🚀 How to Run
+---
+
+## Contribution
+
+Team Project
+
+My contribution focused on:
+
+* Machine learning–based anomaly detection
+* Isolation Forest implementation
+* Anomaly visualization
+* Interpretation of abnormal energy consumption patterns
